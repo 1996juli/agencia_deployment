@@ -1,0 +1,23 @@
+{
+  "name": "agenciaviajesnode",
+  "version": "1.0.0",
+  "description": "Primer proyecto con Node",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start" : "node index.js"
+  },
+  "type": "module",
+  "author": "Deluca Julieta",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "pug": "^3.0.2",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.7"
+  }
+}
