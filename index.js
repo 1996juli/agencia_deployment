@@ -9,7 +9,7 @@ dotenv.config({ path: "./variables.env" });
 
 //Conectar con la BD
 db.authenticate()
-    .then(()=> console.log('Base de datos conectada'))
+    .then(()=> console.log('Database connected'))
     .catch(error => console.log(error));
 
 //Habilitar PUG
@@ -18,8 +18,8 @@ app.set('view engine','pug');
 //Obtener el año actual
 app.use((req, res, next) =>{
     const year = new Date();
-    res.locals.actualYear = year.getFullYear();
-    res.locals.nombreSitio = "Agencia Viajes";
+    res.locals.nowYear = year.getFullYear();
+    res.locals.siteName = "Travel Agency";
     next(); 
 });
 
@@ -38,5 +38,5 @@ const port = process.env.PORT || 4000;
 const host = process.env.HOST || '0.0.0.0';
 
 app.listen(port, host, ()=>{
-    console.log(`El servidor esta funcionando`);
+    console.log(`Server is working`);
 }); 

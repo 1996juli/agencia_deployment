@@ -1,49 +1,49 @@
-import { Viaje } from '../models/Viajes.js'; 
-import { Testimonial} from '../models/Testimoniales.js';
+import { Travel } from '../models/Travels.js';
+import { Testimonial } from '../models/Testimonials.js';
 
-const paginaInicio = async(req, res) =>{
+const homePage = async(req, res) =>{
     //Consultar 3 Viajes del modelo viaje (BD)
 
     const promiseDB = [];
 
-    promiseDB.push(Viaje.findAll({limit: 3}));
+    promiseDB.push(Travel.findAll({limit: 3}));
     promiseDB.push(Testimonial.findAll({limit: 3}));
 
     try {
-        const resultado = await Promise.all(promiseDB);
-        res.render('inicio', {
-            pagina:'Inicio',
-            clase:'home',
-            viajes: resultado[0],
-            testimoniales: resultado[1]
+        const result = await Promise.all(promiseDB);
+        res.render('home', {
+            page:'Inicio',
+            class:'home',
+            travels: result[0],
+            testimonials: result[1]
         }) 
     } catch (error) {
         console.log(error)
     }
 }
 
-const paginaNosotros = (req, res) =>{
-    res.render('nosotros', {
-        pagina:'Nosotros'
+const pageUS = (req, res) =>{
+    res.render('Us', {
+        page:'Nosotros'
     })
 }
 
-const paginaViajes = async (req, res) =>{
+const pageTravels = async (req, res) =>{
     //Consultar la BD
-    const viajes = await Viaje.findAll();
+    const travels = await Travel.findAll();
 
-    res.render('viajes', {
-        pagina:'Proximos Viajes',
-        viajes
+    res.render('travels', {
+        page:'Próximos viajes',
+        travels
     })
 }
 
-const paginaTestimoniales = async (req, res) =>{
+const pageTestimonials = async (req, res) =>{
     try {
-        const testimoniales = await Testimonial.findAll();
-        res.render('testimoniales', {
-            pagina:'Testimoniales',
-            testimoniales
+        const testimonials = await Testimonial.findAll();
+        res.render('testimonials', {
+            page:'Testimoniales',
+            testimonials
         });
     } catch (error){
         console.log(error);
@@ -51,14 +51,14 @@ const paginaTestimoniales = async (req, res) =>{
 }
 
 // Muestra un viaje por su slog
-const paginaDetalleViaje = async(req, res) =>{
+const pageDetailTravel = async(req, res) =>{
     const { slug } = req.params;
     try{
-        const viaje = await Viaje.findOne({ where : { slug } });
+        const travel = await Travel.findOne({ where : { slug } });
         
-        res.render('viaje', {
-            pagina: 'Informacion Viaje',
-            viaje
+        res.render('travel', {
+            page: 'Información del viaje',
+            travel
         })
     } catch (error) {
         console.log(error);
@@ -66,9 +66,9 @@ const paginaDetalleViaje = async(req, res) =>{
 }
 
 export{
-    paginaInicio,
-    paginaNosotros,
-    paginaViajes,
-    paginaTestimoniales,
-    paginaDetalleViaje,
+    homePage,
+    pageUS,
+    pageTravels,
+    pageTestimonials,
+    pageDetailTravel,
 }

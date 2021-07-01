@@ -4,9 +4,9 @@ block contenido
     main.container.mt-5 
         .row
             .col-md-5 
-                img(src=`/img/destinos_${viaje.imagen}_ln.jpg`, alt="imagen viaje", class="img-fluid")
+                img(src=`/img/destinos_${travel.imagen}_ln.jpg`, alt="imagen viaje", class="img-fluid")
             .col-md-7 
-                h1=viaje.titulo
+                h1=travel.titulo
 
                 p 
                     svg.icon.icon-tabler.icon-tabler-calendar(xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewbox='0 0 24 24' stroke-width='1.5' stroke='#dc135f' fill='none' stroke-linecap='round' stroke-linejoin='round')
@@ -18,7 +18,7 @@ block contenido
                         line(x1='11' y1='15' x2='12' y2='15')
                         line(x1='12' y1='15' x2='12' y2='18')
 
-                    | #{viaje.fecha_ida} - #{viaje.fecha_vuelta}
+                    | #{travel.fecha_ida} - #{travel.fecha_vuelta}
             
                 p 
 
@@ -28,7 +28,7 @@ block contenido
                         path(d='M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-2a2 2 0 0 1 -1.8 -1')
                         path(d='M12 6v2m0 8v2')
 
-                    | #{viaje.precio} Dolares
+                    | #{travel.precio} Dollars
                 p
 
                     svg.icon.icon-tabler.icon-tabler-users(xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewbox='0 0 24 24' stroke-width='1.5' stroke='#dc135f' fill='none' stroke-linecap='round' stroke-linejoin='round')
@@ -38,9 +38,9 @@ block contenido
                         path(d='M16 3.13a4 4 0 0 1 0 7.75')
                         path(d='M21 21v-2a4 4 0 0 0 -3 -3.85')
 
-                    | #{viaje.disponibles} Disponibles
+                    | #{travel.disponibles} Available 
 
-                p=viaje.descripcion
+                p=travel.descripcion
 
 
                 

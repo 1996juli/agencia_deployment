@@ -1,18 +1,18 @@
 import express from 'express';
-import {paginaInicio, paginaNosotros, paginaTestimoniales, paginaViajes, paginaDetalleViaje} from '../controllers/paginasController.js';
-import {guardarTestimonial} from '../controllers/testimonialController.js'
+import {homePage, pageUS, pageTestimonials, pageTravels, pageDetailTravel} from '../controllers/paginasController.js';
+import {saveTestimonial} from '../controllers/testimonialsController.js'
 
 const router = express.Router();
 
-router.get('/', paginaInicio);
+router.get('/', homePage);
 
-router.get('/nosotros', paginaNosotros);
+router.get('/us', pageUS);
 
-router.get('/viajes', paginaViajes);
+router.get('/travels', pageTravels);
 
-router.get('/viajes/:slug', paginaDetalleViaje);
+router.get('/travels/:slug', pageDetailTravel);
 
-router.get('/testimoniales', paginaTestimoniales);
-router.post('/testimoniales', guardarTestimonial);
+router.get('/testimonials', pageTestimonials);
+router.post('/testimonials', saveTestimonial);
 
 export default router;
