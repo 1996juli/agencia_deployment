@@ -18,13 +18,13 @@ block contenido
                     .col-md-8 
                         form(action="/testimonials" method="POST")
                             .form-group 
-                                label(for="name") Nombre 
-                                input#nombre(type="text", placeholder="Tu nombre", name="name", class="form-control" value=name)
+                                label(for="nombre") Nombre 
+                                input#nombre(type="text", placeholder="Tu nombre", name="nombre", class="form-control" value=nombre)
                             .form-group 
-                                label(for="email") Email
-                                input#correo(type="text", placeholder="Tu email", name="email", class="form-control" value=email)
+                                label(for="correo") Correo Electrónico
+                                input#correo(type="text", placeholder="Tu correo", name="email", class="form-control" value=correo)
                             .form-group 
-                                label(for="message") Mensaje
-                                textarea#mensaje(class="form-control", name="message", placeholder="Tu mensaje", rows=3)= message
+                                label(for="mensaje") Mensaje
+                                textarea#mensaje(class="form-control", name="mensaje", placeholder="Tu mensaje", rows=3)= mensaje
                             
                             input.btn.btn-success.btn-block(type="submit")

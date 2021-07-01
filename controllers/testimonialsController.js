@@ -3,18 +3,18 @@ import { Testimonial } from '../models/Testimonials.js'
 
 const saveTestimonial = async (req, res) =>{
     //Validar
-    const { name, email, message } = req.body;
+    const { nombre, correo, mensaje } = req.body;
 
     const errores = [];
 
-    if(name.trim() === ""){
-        errores.push({message : "The name is empty"});
+    if(nombre  === ""){
+        errores.push({message : "El nombre esta vacio"});
     }
-    if(email.trim() === ""){
-        errores.push({message: "The email is empty"});
+    if(correo === ""){
+        errores.push({message: "El mail esta vacio"});
     }
-    if(message.trim() === ""){
-        errores.push({message : "The message is empty"});
+    if(mensaje === ""){
+        errores.push({message : "El mensaje esta vacio"});
     }
 
     if(errores.length > 0) {
@@ -26,18 +26,18 @@ const saveTestimonial = async (req, res) =>{
         res.render('testimonials', {
             page: 'Testimonials',
             errores,
-            name,
-            email,
-            message, 
+            nombre,
+            correo,
+            mensaje,
             testimonials
         })
     } else {
         //Almacenarlo en la base de datos
         try {
             await Testimonial.create({
-                name,
-                email,
-                message,
+                nombre,
+                correo,
+                mensaje,
             });
             
             res.redirect('/testimonials');
